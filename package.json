@@ -6,6 +6,7 @@
   "main": "lib/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node scripts/download-esigner.js",
     "build": "rimraf lib && tsc",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
@@ -50,7 +51,8 @@
   },
   "dependencies": {
     "chalk": "^5.6.2",
-    "env-var": "^7.5.0"
+    "env-var": "^7.5.0",
+    "unzipper": "^0.12.3"
   },
   "peerDependencies": {
     "electron-builder": ">=24.0.0"
