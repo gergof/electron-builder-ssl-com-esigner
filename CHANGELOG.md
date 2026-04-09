@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0-2](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-1...v1.0.0-2) (2026-04-09)
+
+
+### Build/CI
+
+* Updated publish workflow ([85348e3](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/85348e324b474161af83a704b201115ad1cc629e))
+
 ## [1.0.0-1](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-0...v1.0.0-1) (2026-04-09)
 
 ## 1.0.0-0 (2026-04-09)
