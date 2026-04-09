@@ -1,4 +1,5 @@
 import cp from 'node:child_process';
+import path from 'node:path';
 
 import { Config } from './config.js';
 import log from './log.js';
@@ -17,16 +18,22 @@ const eSignerSign = async (config: Config, exe: string): Promise<void> => {
 
 	return new Promise((resolve, reject) => {
 		log.debug('Spawning eSigner process');
-		const proc = cp.spawn('java', [
-			'-jar',
-			codeSignTool,
-			`-credential_id=${config.credentialId}`,
-			`-username=${config.username}`,
-			`-password=${config.password}`,
-			`-totp_secret=${config.totpSecret}`,
-			`-input_file_path=${exe}`,
-			`-override`
-		]);
+		const proc = cp.spawn(
+			'java',
+			[
+				'-jar',
+				codeSignTool,
+				`-credential_id=${config.credentialId}`,
+				`-username=${config.username}`,
+				`-password=${config.password}`,
+				`-totp_secret=${config.totpSecret}`,
+				`-input_file_path=${exe}`,
+				`-override`
+			],
+			{
+				cwd: path.join(path.dirname(codeSignTool), '..')
+			}
+		);
 
 		const stdout = consumeStream(proc.stdout);
 		const stderr = consumeStream(proc.stderr);

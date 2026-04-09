@@ -15,6 +15,7 @@
     "release:pre": "commit-and-tag-version --prerelease"
   },
   "files": [
+    "scripts/**/*",
     "lib/**/*"
   ],
   "exports": {
