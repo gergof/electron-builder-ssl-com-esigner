@@ -1,0 +1,22 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## 1.0.0-0 (2026-04-09)
+
+
+### Features
+
+* Implemented initial library version ([bc4d39f](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/bc4d39f806ca8e4abd2bf3611e7202ca44d92587))
+
+
+### Bug Fixes
+
+* Added CWD for eSigner tool ([7ba7869](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/7ba786999fedc3ec8c02940f9f93a54a184226c3))
+
+
+### Build/CI
+
+* Added github action for building package ([4a242a9](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/4a242a9e7c2e34676094061717a4e85787bfd72e))
+* Added script to download esigner tool on installation ([6b3b810](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/6b3b8107a4018659d05c699c0ceb9ccc20ac43f7))
+* Project setup ([9c8c523](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/9c8c523cc4ccdc1636a69d58c8e9e5185061762c))

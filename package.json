@@ -1,6 +1,6 @@
 {
   "name": "electron-builder-ssl-com-esigner",
-  "version": "0.1.0",
+  "version": "1.0.0-0",
   "type": "module",
   "description": "Electron builder plugin to sign windows executables with SSL.com eSigner",
   "main": "lib/index.mjs",
