@@ -1,18 +1,29 @@
 import chalk, { ChalkInstance } from 'chalk';
-import debug from 'debug';
+import env from 'env-var';
+
+import { CONFIG_PREFIX } from './const.js';
+
+const isDebugEnabled = env
+	.get(`${CONFIG_PREFIX}_DEBUG`)
+	.default('false')
+	.asBool();
 
 const logFactory =
-	(color: ChalkInstance, log = console.log) =>
+	(color: ChalkInstance, enabled: boolean = true) =>
 	(message: string) => {
-		log(
-			`  ${color(String.fromCharCode(8266))} [ssl-com-esigner] ${message}`
+		if (!enabled) {
+			return;
+		}
+
+		console.log(
+			`  ${color(String.fromCharCode(8226))} [ssl-com-esigner] ${message}`
 		);
 	};
 
 const log = {
 	info: logFactory(chalk.blue),
 	error: logFactory(chalk.red),
-	debug: logFactory(chalk.gray, debug('electron-builder-ssl-com-esigner'))
+	debug: logFactory(chalk.gray, isDebugEnabled)
 };
 
 export default log;

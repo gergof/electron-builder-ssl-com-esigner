@@ -1,5 +1,6 @@
 import env from 'env-var';
 
+import { CONFIG_PREFIX } from './const.js';
 import { camelToSnakeUpper } from './utils.js';
 
 export interface Config {
@@ -8,8 +9,6 @@ export interface Config {
 	password: string;
 	totpSecret: string;
 }
-
-const CONFIG_PREFIX = 'SSL_COM_ESIGNER';
 
 const getEnvVar = (paramName: string) => {
 	return env

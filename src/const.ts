@@ -1,0 +1,1 @@
+export const CONFIG_PREFIX = 'SSL_COM_ESIGNER';
