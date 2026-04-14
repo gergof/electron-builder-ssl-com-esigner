@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0-3](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-2...v1.0.0-3) (2026-04-14)
+
+
+### Build/CI
+
+* Add tagging for pre-release version tags ([1aa3783](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/1aa3783b02d6419fa6ea217b57746c4d0c0e9605))
+
 ## [1.0.0-2](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-1...v1.0.0-2) (2026-04-09)
 
 
