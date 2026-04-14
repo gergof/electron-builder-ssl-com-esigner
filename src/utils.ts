@@ -15,17 +15,20 @@ export const camelToSnakeUpper = (str: string): string => {
 };
 
 export const findCodeSignTool = async (): Promise<string> => {
-	const esignerPath = path.join(
+	const eSignerDir = path.join(
 		path.dirname(url.fileURLToPath(import.meta.url)),
 		'..',
 		'esigner',
-		'jar',
-		'code_sign_tool-*.jar'
+		'jar'
 	);
 
+	log.debug(`Searching for eSigner at: ${eSignerDir}`);
+
 	const files = await FastGlob.async(
-		FastGlob.convertPathToPattern(esignerPath)
+		`${FastGlob.convertPathToPattern(eSignerDir)}/code_sign_tool-*.jar`
 	);
+
+	log.debug(`Found ${files.length} files matching: ${JSON.stringify(files)}`);
 
 	const tool = files[0];
 

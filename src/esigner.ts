@@ -23,6 +23,7 @@ const eSignerSign = async (config: Config, exe: string): Promise<void> => {
 			[
 				'-jar',
 				codeSignTool,
+				'sign',
 				`-credential_id=${config.credentialId}`,
 				`-username=${config.username}`,
 				`-password=${config.password}`,
@@ -44,15 +45,32 @@ const eSignerSign = async (config: Config, exe: string): Promise<void> => {
 		});
 
 		proc.on('close', async code => {
+			const stdoutText = await stdout;
+			const stderrText = await stderr;
+
+			const handleError = (message: string) => {
+				log.error(message);
+				logESignOutput('stdout', stdoutText, log.error);
+				logESignOutput('stderr', stderrText, log.error);
+				reject(new Error(message));
+			};
+
 			if (code !== 0) {
-				log.error(`eSigner finished with non-zero exit code: ${code}`);
-				logESignOutput('stdout', await stdout, log.error);
-				logESignOutput('stderr', await stderr, log.error);
-				reject(
-					new Error(
-						`eSigner finished with non-zero exit code: ${code}`
-					)
+				handleError(
+					`eSigner finished with non-zero exit code: ${code}`
 				);
+				return;
+			}
+
+			if (stderrText.trim()) {
+				handleError(`eSigner wrote error messages`);
+				return;
+			}
+
+			if (
+				stdoutText.split('\n').some(line => line.startsWith('Error:'))
+			) {
+				handleError('eSigner failed');
 				return;
 			}
 
