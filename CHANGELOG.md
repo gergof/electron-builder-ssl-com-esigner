@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-4...v1.0.0) (2026-04-14)
+
+
+### Bug Fixes
+
+* **package.json:** Fixed main directive pointing toward the correct file ([8989f97](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/8989f97b203e809aff0becbef58f020ba6c2f310))
+* **utils:** Use consumeStream for java presence check and fail on non-zero exit codes ([e07733d](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/e07733dcd14a6575ba8b2f97677f93db82ca91df))
+
+
+### Documentation
+
+* Added documentation for the library ([43e6d61](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/43e6d6170c361a9fb4185fb7cf03acdf1c808963))
+
 ## [1.0.0-4](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-3...v1.0.0-4) (2026-04-14)
 
 
