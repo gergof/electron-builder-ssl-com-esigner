@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0-4](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-3...v1.0.0-4) (2026-04-14)
+
+
+### Bug Fixes
+
+* **eSigner:** Fixed command, added more error conditions, and fixed lookup glob ([0946845](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/0946845151a7cd9c1786ce5088322169cc21c49e))
+
 ## [1.0.0-3](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-2...v1.0.0-3) (2026-04-14)
 
 
