@@ -42,26 +42,6 @@ export const findCodeSignTool = async (): Promise<string> => {
 	return tool;
 };
 
-export const checkJavaExists = (): Promise<boolean> => {
-	return new Promise(resolve => {
-		const proc = cp.spawn('java', ['-version']);
-
-		let version = '';
-		proc.stderr.on('data', data => {
-			version += data.toString();
-		});
-
-		proc.on('error', () => {
-			resolve(false);
-		});
-
-		proc.on('close', () => {
-			log.debug(`Java version: ${version.replaceAll('\n', ' ')}`);
-			resolve(true);
-		});
-	});
-};
-
 export const consumeStream = (stream: Stream.Readable): Promise<string> => {
 	return new Promise(resolve => {
 		let str = '';
@@ -72,6 +52,28 @@ export const consumeStream = (stream: Stream.Readable): Promise<string> => {
 
 		stream.on('close', () => {
 			resolve(str);
+		});
+	});
+};
+
+export const checkJavaExists = (): Promise<boolean> => {
+	return new Promise(resolve => {
+		const proc = cp.spawn('java', ['-version']);
+
+		const version = consumeStream(proc.stderr);
+
+		proc.on('error', () => {
+			resolve(false);
+		});
+
+		proc.on('close', async code => {
+			if (code !== 0) {
+				resolve(false);
+				return;
+			}
+
+			log.debug(`Java version: ${(await version).replaceAll('\n', ' ')}`);
+			resolve(true);
 		});
 	});
 };
