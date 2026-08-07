@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 
 import { WindowsSignTaskConfiguration } from 'electron-builder';
@@ -8,7 +9,10 @@ import log from './log.js';
 import { checkJavaExists } from './utils.js';
 
 const sign = async (signTask: WindowsSignTaskConfiguration) => {
-	log.info(`Signing '${path.basename(signTask.path)}' with SSL.com eSigner`);
+	let nativeAddon = false;
+	let fileToSign = signTask.path;
+
+	log.info(`Signing '${path.basename(fileToSign)}' with SSL.com eSigner`);
 
 	log.debug('Loading configuration from env vars');
 	const config = getConfig();
@@ -20,7 +24,20 @@ const sign = async (signTask: WindowsSignTaskConfiguration) => {
 		throw new Error('Java not installed');
 	}
 
-	await eSignerSign(config, signTask.path);
+	if (path.extname(fileToSign).toLowerCase() == '.node') {
+		log.info('Signing native addon, renaming to have .dll extension first');
+		nativeAddon = true;
+		const dllPath = `${fileToSign}.dll`;
+		await fs.promises.rename(fileToSign, dllPath);
+		fileToSign = dllPath;
+	}
+
+	await eSignerSign(config, fileToSign);
+
+	if (nativeAddon) {
+		log.info('Restoring extension to .node');
+		await fs.promises.rename(fileToSign, signTask.path);
+	}
 
 	log.info('Signing process completed');
 };
