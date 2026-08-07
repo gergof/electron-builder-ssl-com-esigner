@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0...v1.1.0) (2026-08-07)
+
+
+### Features
+
+* Added ability to sign .node files ([6539a51](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/6539a51823367f253c54578728f07656c2299b42))
+
 ## [1.0.0](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0-4...v1.0.0) (2026-04-14)
 
 
