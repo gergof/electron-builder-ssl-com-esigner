@@ -6,7 +6,6 @@ import path from 'node:path';
 import { Readable } from 'node:stream';
 import url from 'node:url';
 
-import { rimraf } from 'rimraf';
 import unzipper from 'unzipper';
 
 const ESIGNER_URL =
@@ -22,7 +21,7 @@ const main = async () => {
 	);
 
 	console.log('- Deleting existing folder');
-	await rimraf(esignerDir);
+	await fsp.rm(esignerDir, { recursive: true, force: true });
 
 	console.log('- Downloading zip archive');
 	const res = await fetch(ESIGNER_URL);
