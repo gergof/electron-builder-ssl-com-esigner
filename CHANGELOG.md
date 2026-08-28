@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.1](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.1.0...v1.1.1) (2026-08-28)
+
+### Bug Fixes
+
+* Updated dependencies and removed rimraf from download script ([b48144e](https://github.com/gergof/electron-builder-ssl-com-esigner/commit/b48144e0bd90302a567879c45f0427951a8a8e56))
 ## [1.1.0](https://github.com/gergof/electron-builder-ssl-com-esigner/compare/v1.0.0...v1.1.0) (2026-08-07)
 
 
